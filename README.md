@@ -21,3 +21,38 @@ You just started working for a new agency. You have to take over a project for a
 ## On The Real
 
 The way things stand now there are some pretty glaring bugs in the app and a handful of places that could use some optimization. We want to see how you approach buggy code and what things you really care about. There is no set design for requirement three so use your creativity.
+
+
+## Daniel Notes
+
+### Questions
+- No analytics package defined in package.json, find in source
+
+### Plan of attack
+
+
+#### Initial 
+- ~~.gitignore~~
+- ~~editor config~~
+- ~~package updates~~
+- ~~eslint rules~~
+- ~~lint the codebase~~ Warnings. Will resolve in Phase 1
+
+#### Phase 1
+- Run current code
+- Triage current code
+- Research React :)
+- Mock api calls to "Dyrt"
+
+#### Phase 2
+- React Asset structure?
+- Each time a user's mouse enters the dropdown menu an analytics event is logged with an updated list of the results.
+- When a user selects a campground from the dropdown menu, the campground is loaded and some basic information is displayed.  
+  - Keyboard navigation?
+- Responsive site, Bootstrap? :/ Quick and dirty.
+
+#### Phase 3
+- Limit unneeded re-renders. This will be fun to learn
+- Eslint rules for Jest, testing would be nice... 
+- 
+
