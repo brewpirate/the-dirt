@@ -23,6 +23,13 @@ You just started working for a new agency. You have to take over a project for a
 The way things stand now there are some pretty glaring bugs in the app and a handful of places that could use some optimization. We want to see how you approach buggy code and what things you really care about. There is no set design for requirement three so use your creativity.
 
 
+## Developer Env
+- yarn install
+- yarn run start
+
+localhost:3000
+
+
 ## Daniel Notes
 
 ### Questions
@@ -39,10 +46,11 @@ The way things stand now there are some pretty glaring bugs in the app and a han
 - ~~lint the codebase~~ Warnings. Will resolve in Phase 1
 
 #### Phase 1
-- Run current code
+- ~~Run current code~~
 - Triage current code
 - Research React :)
-- Mock api calls to "Dyrt"
+- ~~Mock api calls to "Dyrt"~~ mock data provided in `src/data/searchResults.js`
+- Add and configure Axios for request, use env flag to use mock data in dev.
 
 #### Phase 2
 - React Asset structure?

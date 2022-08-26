@@ -5,9 +5,9 @@ import { log } from '../../utils/logToAnalytics';
 import styles from './Sidebar.module.scss';
 
 export const Sidebar = ({
-  setSelectedCampgroundId,
-  results,
-  setResults,
+  setSelectedCampgroundId, //  TODO: eslint warning React Hook useEffect has a missing dependency:
+  results, //  TODO: eslint warning React Hook useEffect has a missing dependency:
+  setResults, //  TODO: eslint warning React Hook useEffect has a missing dependency:
   query,
   setQuery,
 }) => {
@@ -27,8 +27,9 @@ export const Sidebar = ({
         TODO load results from https://staging.thedyrt.com/api/v5/autocomplete/campgrounds with
         the query parameter `q`
       */
-      setLoading(true);
 
+
+      // TODO: Zenner Notes - Convert to async?
       setTimeout(() => {
         setResults(
           searchResults.filter((result) => result.name.includes(query))
@@ -65,6 +66,9 @@ export const Sidebar = ({
             }`}
             onMouseEnter={logToAnalytics}
           >
+            {
+              /* TODO: Zenner Notes - Improve user experience when there are no results */
+            }
             {loading ? (
               <p>Loading ...</p>
             ) : (

@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 const Header = () => {
   return (
     <div className={styles['header']}>
-      <div className={styles['title']}>The Dyrt Tech Challenge</div>
+      <div className={styles['title']}>The Dirt</div>
     </div>
   );
 };
