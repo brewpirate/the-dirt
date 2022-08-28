@@ -14,12 +14,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev-api": " json-server --watch src/data/thedyrt.json --port 3001 --routes src/data/routes.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --fix-dry-run src/",
-    "lint:fix": "eslint --fix src/"
+    "lint:fix": "eslint --fix src/",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "plugins": [
@@ -42,5 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "json-server": "^0.17.0"
+  }
 }

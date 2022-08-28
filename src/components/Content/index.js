@@ -5,7 +5,7 @@ import { Sidebar } from '../Sidebar';
 import styles from './Content.module.scss';
 
 const Content = () => {
-  const [selectedCampgroundId, setSelectedCampgroundId] = useState();
+  const [selectedCampgroundId, setSelectedCampgroundId] = useState(null);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState();
 

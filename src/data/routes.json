@@ -1,0 +1,4 @@
+{
+  "/api/v5/campgrounds/:id": "/campgrounds/:id",
+  "/api/v5/autocomplete/campgrounds?q=:name": "/campgrounds?name_like=:name"
+}

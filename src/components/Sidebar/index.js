@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import searchResults from '../../data/searchResults';
 import { log } from '../../utils/logToAnalytics';
 
 import styles from './Sidebar.module.scss';
 
 export const Sidebar = ({
-  setSelectedCampgroundId,
-  results,
-  setResults,
+  setSelectedCampgroundId, //  TODO: eslint warning React Hook useEffect has a missing dependency:
+  results, //  TODO: eslint warning React Hook useEffect has a missing dependency:
+  setResults, //  TODO: eslint warning React Hook useEffect has a missing dependency:
   query,
   setQuery,
 }) => {
@@ -17,24 +16,25 @@ export const Sidebar = ({
 
   useEffect(() => {
     if (result) {
+      console.log('result has updated', result)
       setSelectedCampgroundId(result.id);
     }
   }, [result]);
 
   useEffect(() => {
     if (query) {
-      /*
-        TODO load results from https://staging.thedyrt.com/api/v5/autocomplete/campgrounds with
-        the query parameter `q`
-      */
-      setLoading(true);
-
-      setTimeout(() => {
-        setResults(
-          searchResults.filter((result) => result.name.includes(query))
-        );
+      const getAutocompleteCampgrounds = async () => {
+        setLoading(true);
+        try {
+          const res = await fetch(`${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/autocomplete/campgrounds?q=${query}`)
+          setResults(await res.json())
+        } catch (error) {
+          console.log(error);
+        }
         setLoading(false);
-      }, 500);
+      };
+
+      getAutocompleteCampgrounds();
     }
   }, [query]);
 
@@ -61,10 +61,13 @@ export const Sidebar = ({
 
           <div
             className={`${styles['search__dropdown']} ${
-              showMenu ? styles['search__dropdown--active'] : undefined
+              showMenu && query ? styles['search__dropdown--active'] : undefined
             }`}
             onMouseEnter={logToAnalytics}
           >
+            {
+              /* TODO: Zenner Notes - Improve user experience when there are no results */
+            }
             {loading ? (
               <p>Loading ...</p>
             ) : (
@@ -74,6 +77,7 @@ export const Sidebar = ({
                   className={styles['search__dropdown__item']}
                   onClick={() => {
                     setResult(result);
+                    setShowMenu(!showMenu);
                   }}
                 >
                   <p>{result.name}</p>
