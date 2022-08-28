@@ -1,20 +1,32 @@
-import React from 'react';
-import searchResults from '../../data/searchResults';
+import React, {  useEffect, useState } from 'react';
 
 import styles from './CampgroundOverview.module.scss';
 
-const CampgroundOverview = ({ selectedCampgroundId }) => {
-  // TODO load the actual campground from https://thedyrt.com/api/v5/campgrounds/${selectedCampgroundId}
-  const campground = searchResults.find(
-    (result) => selectedCampgroundId === result.id
-  );
-  // console.log(campground);
+const CampgroundOverview = ({ selectedCampgroundId,  }) => {
+  const [campground, setCampground] = useState()
 
-  // TODO: Zenner Notes - Improve experience for undefined. Conditional rendering?
+  useEffect(() => {
+    if (selectedCampgroundId) {
+      const getCampground = async () => {
+        const res = await fetch(`${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/campgrounds/${selectedCampgroundId}`)
+        const data = await res.json()
+        console.log('CampgroundOverview:selectedCampgroundId =>', data)
+        setCampground(data)
+      }
+
+      getCampground()
+    }
+  }, [selectedCampgroundId]);
+
+  // TODO: Zenner Notes - Improve experience for undefined.?
   return (
     <div className={styles['overview']}>
       <div className={styles['overview__content']}>
-        <h2>{`Display Content About ${campground?.name}`}</h2>
+        {!selectedCampgroundId ? (
+          <p></p>
+        ) : (
+          <h2>{`Display Content About ${campground?.name}`}</h2>
+        )}
       </div>
     </div>
   );

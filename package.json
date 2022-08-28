@@ -6,7 +6,6 @@
     "eslint": "^8.8.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.1",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -15,6 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev-api": " json-server --watch src/data/thedyrt.json --port 3001 --routes src/data/routes.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,5 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "json-server": "^0.17.0"
+  }
 }
