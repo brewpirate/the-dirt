@@ -3,9 +3,7 @@
     "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss"
   ],
-  "plugins": [
-    "stylelint-selector-bem-pattern"
-  ],
+  "plugins": ["stylelint-selector-bem-pattern"],
   "rules": {
     "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*?$",
     "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*?$",

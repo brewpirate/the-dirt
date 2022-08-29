@@ -29,6 +29,7 @@
       "react-hooks"
     ],
     "extends": [
+      "prettier",
       "react-app",
       "react-app/jest"
     ]
@@ -46,11 +47,15 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "json-server": "^0.17.0",
     "stylelint": "^14.11.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import CampgroundOverview from '../CampgroundOverview';
-import { Sidebar } from '../Sidebar';
+import React, { useState } from "react";
+import CampgroundOverview from "../CampgroundOverview";
+import { Sidebar } from "../Sidebar";
 
-import styles from './Content.module.scss';
+import styles from "./Content.module.scss";
 
 const Content = () => {
   const [selectedCampgroundId, setSelectedCampgroundId] = useState(null);
@@ -10,7 +10,7 @@ const Content = () => {
   const [query, setQuery] = useState(null);
 
   return (
-    <div className={styles['content']}>
+    <div className={styles["content"]}>
       <Sidebar
         setSelectedCampgroundId={setSelectedCampgroundId}
         results={results}

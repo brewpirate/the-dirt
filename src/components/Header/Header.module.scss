@@ -1,4 +1,4 @@
-@import '../../styles/styles';
+@import "../../styles/styles";
 
 .header {
   background-color: $cNOffWhite;
@@ -8,7 +8,7 @@
 }
 
 .title {
-  @include fBody('lg', 'bold');
+  @include fBody("lg", "bold");
 
   color: $cMud;
   display: flex;

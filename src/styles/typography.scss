@@ -1,7 +1,7 @@
 // Families
-@use 'sass:list';
+@use "sass:list";
 
-$montserrat: 'Montserrat', sans-serif;
+$montserrat: "Montserrat", sans-serif;
 
 // Font Properties
 $baseFontSize: 16px;
@@ -11,33 +11,34 @@ $primaryFontWeightMd: 500;
 $primaryFontWeightSemiB: 600;
 $primaryFontWeightB: 700;
 $fBodyXs: $primaryFontWeightMd list.slash(0.75rem, $baseLineHeight) $primaryFont;
-$fBodySm: $primaryFontWeightMd list.slash(0.825rem, $baseLineHeight) $primaryFont;
+$fBodySm: $primaryFontWeightMd list.slash(0.825rem, $baseLineHeight)
+  $primaryFont;
 $fBodyMd: $primaryFontWeightMd list.slash(1rem, $baseLineHeight) $primaryFont;
 $fBodyLg: $primaryFontWeightMd list.slash(1.25rem, $baseLineHeight) $primaryFont;
 $fTitleSm: $primaryFontWeightB 1.13rem / 1.38rem $primaryFont;
 $fTitleMd: $primaryFontWeightB 1rem / 1.25rem $primaryFont;
 
-@mixin fBody($size: 'md', $weight: 'normal') {
-  @if $size == 'xs' {
+@mixin fBody($size: "md", $weight: "normal") {
+  @if $size == "xs" {
     font: $fBodyXs;
   }
-  @if $size == 'sm' {
+  @if $size == "sm" {
     font: $fBodySm;
   }
-  @if $size == 'md' {
+  @if $size == "md" {
     font: $fBodyMd;
   }
-  @if $size == 'lg' {
+  @if $size == "lg" {
     font: $fBodyLg;
   }
 
-  @if $weight == 'normal' {
+  @if $weight == "normal" {
     font-weight: $primaryFontWeightMd;
   }
-  @if $weight == 'semibold' {
+  @if $weight == "semibold" {
     font-weight: $primaryFontWeightSemiB;
   }
-  @if $weight == 'bold' {
+  @if $weight == "bold" {
     font-weight: $primaryFontWeightB;
   }
 
@@ -45,8 +46,8 @@ $fTitleMd: $primaryFontWeightB 1rem / 1.25rem $primaryFont;
   text-transform: none;
 }
 
-@mixin fHeading($size: 'md') {
-  @if $size == 'sm' {
+@mixin fHeading($size: "md") {
+  @if $size == "sm" {
     font: $fHeadingSm;
 
     @media screen and (min-width: $bpLg) {
@@ -54,7 +55,7 @@ $fTitleMd: $primaryFontWeightB 1rem / 1.25rem $primaryFont;
       line-height: 3.13rem;
     }
   }
-  @if $size == 'md' {
+  @if $size == "md" {
     font: $fHeadingMd;
 
     @media screen and (min-width: $bpLg) {
@@ -62,7 +63,7 @@ $fTitleMd: $primaryFontWeightB 1rem / 1.25rem $primaryFont;
       line-height: 3.75rem;
     }
   }
-  @if $size == 'lg' {
+  @if $size == "lg" {
     font: $fHeadingLg;
 
     @media screen and (min-width: $bpLg) {

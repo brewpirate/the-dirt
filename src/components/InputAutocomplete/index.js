@@ -1,8 +1,14 @@
 import styles from "../InputAutocomplete/InputAutocomplete.module.scss";
-import React, {useCallback, useEffect, useState} from "react";
-import {log} from "../../utils/logToAnalytics";
+import React, { useCallback, useEffect, useState } from "react";
+import { log } from "../../utils/logToAnalytics";
 
-export const InputAutocomplete = (props) => {
+export const InputAutocomplete = ({
+    setSelectedCampgroundId,
+    results,
+    setResults,
+    query,
+    setQuery,
+  }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
@@ -10,19 +16,21 @@ export const InputAutocomplete = (props) => {
 
   useEffect(() => {
     if (result) {
-      const newIndex = props.results.map(r => r.id).indexOf(result.id)
+      const newIndex = results.map((r) => r.id).indexOf(result.id);
       setResultIndex(newIndex);
-      props.setSelectedCampgroundId(result.id);
+      setSelectedCampgroundId(result.id);
     }
-  }, [ result, props.setSelectedCampgroundId]);
+  }, [result, results, setSelectedCampgroundId]);
 
   useEffect(() => {
-    if (props.query) {
+    if (query) {
       const getAutocompleteCampgrounds = async () => {
         setLoading(true);
         try {
-          const res = await fetch(`${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/autocomplete/campgrounds?q=${props.query}`)
-          props.setResults(await res.json())
+          const res = await fetch(
+            `${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/autocomplete/campgrounds?q=${query}`
+          );
+          setResults(await res.json());
         } catch (error) {
           console.log(error);
         }
@@ -31,64 +39,66 @@ export const InputAutocomplete = (props) => {
 
       getAutocompleteCampgrounds();
     }
-  }, [props.query, props.setResults]);
+  }, [query, setResults]);
 
   const logToAnalytics = useCallback(() => {
-    log('search-dropdown-enter', props.results);
-  }, [props.results]);
+    log("search-dropdown-enter", results);
+  }, [results]);
 
-  // If released key is our target key then set to false
+  // Allow for a user to navigate using Up and Down arrows
   const keyPressEvent = (key) => {
-
-    console.log('Active Index', key, resultIndex)
     let newIndex = resultIndex;
 
-    if (key === 'ArrowUp') {
+    if (key === "ArrowUp") {
       newIndex = newIndex > 0 ? --newIndex : 0;
-    };
+    }
     if (key === "ArrowDown") {
-      newIndex = resultIndex <= props.results.length ? ++ newIndex : props.results.length
-      console.log('USER PRESSED DOWN', resultIndex, newIndex)
-    };
+      newIndex = resultIndex <= results.length ? ++newIndex : results.length;
+    }
 
-    setResult(props.results[newIndex]);
+    setResult(results[newIndex]);
   };
 
-
   return (
-    <div className={`${styles['search']}  `}>
-      <div className={styles['search__input-container']}
-           onClick={() => {
-             setShowMenu(!showMenu);
-           }}
+    <div className={`${styles["search"]}  `}>
+      <div
+        className={styles["search__input-container"]}
+        onClick={() => {
+          setShowMenu(!showMenu);
+        }}
       >
         <input
-          className={`${styles['search__input']}`}
+          className={`${styles["search__input"]}`}
           placeholder="Where would you like to camp?"
           onChange={(e) => {
-            props.setQuery(e.target.value);
+            setQuery(e.target.value);
           }}
-
+          onClick={() => {
+            setShowMenu(!showMenu);
+          }}
         />
       </div>
       <div
-        className={`${styles['search__dropdown']} ${
-          showMenu && props.query ? styles['search__dropdown--active'] : undefined
+        className={`${styles["search__dropdown"]} ${
+          showMenu && query
+            ? styles["search__dropdown--active"]
+            : undefined
         }`}
         onMouseEnter={logToAnalytics}
         onKeyDown={(e) => {
-          keyPressEvent(e.key)
+          keyPressEvent(e.key);
         }}
       >
-        {
-          loading && <p>Loading ...</p>
-        }
-        {
-          props.results.length ? (
-            props.results.map((r, index) => (
+        { loading && <p>Loading ...</p> }
+        { results.length
+          ? results.map((r, index) => (
               <div
                 key={index}
-                className={`${styles['search__dropdown__item']} ${result?.name === r?.name ? styles['search__dropdown__item--active'] : undefined }`}
+                className={`${styles["search__dropdown__item"]} ${
+                  result?.name === r?.name
+                    ? styles["search__dropdown__item--active"]
+                    : undefined
+                }`}
                 tabIndex="0"
                 onClick={() => {
                   setResult(r);
@@ -97,9 +107,7 @@ export const InputAutocomplete = (props) => {
                 <p>{r.name}</p>
               </div>
             ))
-        ) : (
-            !loading && <p>No Results</p>
-        )}
+          : !loading && <p>No Results</p>}
       </div>
     </div>
   );
