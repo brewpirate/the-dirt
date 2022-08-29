@@ -1,4 +1,4 @@
-@import '../../styles/styles.scss';
+@import '../../styles/styles';
 
 .header {
   background-color: $cNOffWhite;
@@ -9,6 +9,7 @@
 
 .title {
   @include fBody('lg', 'bold');
+
   color: $cMud;
   display: flex;
   justify-content: center;
