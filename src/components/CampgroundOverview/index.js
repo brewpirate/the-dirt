@@ -2,7 +2,7 @@ import React, {  useEffect, useState } from 'react';
 
 import styles from './CampgroundOverview.module.scss';
 
-const CampgroundOverview = ({ selectedCampgroundId,  }) => {
+const CampgroundOverview = ({ selectedCampgroundId }) => {
   const [campground, setCampground] = useState()
 
   useEffect(() => {
@@ -18,7 +18,6 @@ const CampgroundOverview = ({ selectedCampgroundId,  }) => {
     }
   }, [selectedCampgroundId]);
 
-  // TODO: Zenner Notes - Improve experience for undefined.?
   return (
     <div className={styles['overview']}>
       <div className={styles['overview__content']}>
