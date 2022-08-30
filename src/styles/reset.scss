@@ -2,10 +2,9 @@ html {
   box-sizing: border-box;
   @include fBody;
 
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   color: $cNOffBlack;
   background-color: $cMud;
+  font-smoothing: smooth;
   scroll-behavior: smooth;
 }
 
@@ -47,8 +46,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
-  font-weight: normal;
+  color: $cBPrimary;
+
+  //font-size: 100%;
+  font-weight: bolder;
 }
 
 ul {

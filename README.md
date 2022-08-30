@@ -8,7 +8,9 @@ You just started working for a new agency. You have to take over a project for a
 
 ## Requirements
 
-~~1.Data is loaded from The Dyrt's autocomplete endpoint as a user types a query into the search input.~~ 2. Each time a user's mouse enters the dropdown menu an analytics event is logged with an updated list of the results. 3. When a user selects a campground from the dropdown menu, the campground is loaded and some basic information is displayed.
+1. Data is loaded from The Dyrt's autocomplete endpoint as a user types a query into the search input.
+2. Each time a user's mouse enters the dropdown menu an analytics event is logged with an updated list of the results. 
+3. When a user selects a campground from the dropdown menu, the campground is loaded and some basic information is displayed.
 
 ### Extra Credit
 
@@ -22,26 +24,37 @@ The way things stand now there are some pretty glaring bugs in the app and a han
 
 ## Development Environment
 
-## Requirements
-
+### Requirements
 - Nodejs
 - Yarn
 
 ### Initial Setup
-
 1. From repo root run the following `yarn install`
-2. Run the following command to enable the git precommit hook `yarn run prepare`
+2. Run the following command to enable the git pre-commit hook `yarn run prepare`
 3. Make a copy of `.env.sample` and rename to `.env`
-4. Update values in `.env` and ensure
+4. Update values in `.env` to the correct values.
 
-### Run
+```env
+REACT_APP_THE_DYRT_API_URL=http://localhost:3001
+REACT_APP_GA_TRACKING_ID=UA-000000-01
+REACT_APP_GA_TRACKING_ENABLED=false
+```
 
-- `yarn run dev-api`
-- `yarn run start`
+### Run "the dirt"
+1. Start the development api server `yarn run dev-api`
+2. Start the development server`yarn run start`
+
 
 ### Local Development API
-
 - localhost:3000
+
+### Google Analytics
+
+## Linting
+### ESLint
+### Stylelint
+
+
 
 ## Daniel Notes
 

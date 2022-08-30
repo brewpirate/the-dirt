@@ -26,12 +26,18 @@ const CampgroundOverview = ({ selectedCampgroundId }) => {
   return (
     <div className={styles["overview"]}>
       <div className={styles["overview__content"]}>
-        {!selectedCampgroundId ? (
-          <p></p>
-        ) : (
-          <h2>{`Display Content About ${campground?.name}`}</h2>
-        )}
-      </div>
+        { !selectedCampgroundId  && <p></p> }
+        { selectedCampgroundId &&
+          <div>
+            { campground?.photoUrl && <img className={styles["overview__content__image"]} src={`${campground?.photoUrl}`} alt={campground?.name} /> }
+            <h1>{`${campground?.name}`}</h1>
+            <div className={styles["overview__content__crumb"]}>{`${campground?.type} > ${campground?.region_name} > ${campground?.name}`}</div>
+            <div className={styles["overview__content__reviews"]}>
+             Reviews: {campground?.reviews_count}
+            </div>
+          </div>
+        }
+        </div>
     </div>
   );
 };

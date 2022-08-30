@@ -11,8 +11,7 @@ $primaryFontWeightMd: 500;
 $primaryFontWeightSemiB: 600;
 $primaryFontWeightB: 700;
 $fBodyXs: $primaryFontWeightMd list.slash(0.75rem, $baseLineHeight) $primaryFont;
-$fBodySm: $primaryFontWeightMd list.slash(0.825rem, $baseLineHeight)
-  $primaryFont;
+$fBodySm: $primaryFontWeightMd list.slash(0.825rem, $baseLineHeight) $primaryFont;
 $fBodyMd: $primaryFontWeightMd list.slash(1rem, $baseLineHeight) $primaryFont;
 $fBodyLg: $primaryFontWeightMd list.slash(1.25rem, $baseLineHeight) $primaryFont;
 $fTitleSm: $primaryFontWeightB 1.13rem / 1.38rem $primaryFont;

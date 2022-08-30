@@ -1,6 +1,7 @@
-import styles from "../InputAutocomplete/InputAutocomplete.module.scss";
 import React, { useCallback, useEffect, useState } from "react";
 import { log } from "../../utils/logToAnalytics";
+
+import styles from "../InputAutocomplete/InputAutocomplete.module.scss";
 
 export const InputAutocomplete = ({
     setSelectedCampgroundId,
@@ -42,7 +43,7 @@ export const InputAutocomplete = ({
   }, [query, setResults]);
 
   const logToAnalytics = useCallback(() => {
-    log("search-dropdown-enter", results);
+    log("search-dropdown", "mouse-enter", JSON.stringify(results));
   }, [results]);
 
   // Allow for a user to navigate using Up and Down arrows

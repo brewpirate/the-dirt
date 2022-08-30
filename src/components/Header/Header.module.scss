@@ -10,7 +10,6 @@
 .title {
   @include fBody("lg", "bold");
 
-  color: $cMud;
   display: flex;
   justify-content: center;
   align-items: center;

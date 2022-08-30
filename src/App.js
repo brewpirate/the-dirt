@@ -4,6 +4,9 @@ import Content from "./components/Content";
 import ReactGA from "react-ga";
 
 function App() {
+  /* Initialize Google Analytics
+   * @see https://github.com/react-ga/react-ga
+   */
   ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
     debug: process.env.NODE_ENV === 'development',
   });
