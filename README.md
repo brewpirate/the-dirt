@@ -48,48 +48,51 @@ REACT_APP_GA_TRACKING_ENABLED=false
 ### Local Development API
 - localhost:3000
 
-### Google Analytics
 
 ## Linting
+### Git Hook
+Please ensure you have installed Husky and ran `yarn run prepare`. Each commit to this repo will be linted using ESlint and Stylelint.
+
+### Manual Run
+Run lint without changes
+> `yarn run lint`
+
+Run lint and fix errors
+> `yarn run lint:fix`
+
 ### ESLint
+#### Extended Rules
+- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+- [react-app](https://www.npmjs.com/package/eslint-config-react-app)
+- [react-app/jest](https://www.npmjs.com/package/eslint-config-react-app)
+
+#### Plugins
+- [react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+
+#### Commands
+Run eslint without changes
+> `eslint --fix-dry-run src/`
+
+Run eslint and fix errors
+> `eslint --fix src/`
+
+
 ### Stylelint
+#### Extended Rules
+- [stylelint-config-standard-scss](https://github.com/stylelint-scss/stylelint-config-standard-scss#readme)
+- [stylelint-config-prettier-scss](https://github.com/prettier/stylelint-config-prettier-scss#readme)
+#### Plugins
+- [stylelint-selector-bem-pattern](https://github.com/simonsmith/stylelint-selector-bem-pattern#readme)
+
+#### Commands
+Run lint without changes
+> `stylelint "**/*.scss"`
+
+Run lint and fix errors
+> `stylelint "**/*.scss" --fix`
 
 
+## From Daniel
+Hello Friendly Developer! This was a fun exercise especially since I have been working with Vue/Nuxt over the last 4 years so there was a lot to learn. Hopefully I was able to show off my other skills by setting up tooling, refactoring code and approaching issues the React way (Well what I could Google). I attempted to work thought this project by creating pull requests and leaving the git log pristine warts and all, so I encourage you to review the git history. 
 
-## Daniel Notes
-
-### Questions
-
-- No analytics package defined in package.json, find in source
-
-### Plan of attack
-
-#### Initial
-
-- ~~.gitignore~~
-- ~~editor config~~
-- ~~package updates~~
-- ~~eslint rules~~
-- ~~lint the codebase~~ Warnings. Will resolve in Phase 1
-
-#### Phase 1
-
-- ~~Run current code~~
-- ~~Triage current code~~
-- ~~Research React :)~~
-- ~~Mock api calls to "Dyrt"~~ ~~~mock data provided in `src/data/searchResults.js`~~~
-- ~~Use .env file to manage env urls, use Json Server to serve mock responses from the dyrt~~
-
-#### Phase 2
-
-- React Asset structure?
-- Each time a user's mouse enters the dropdown menu an analytics event is logged with an updated list of the results.
-- When a user selects a campground from the dropdown menu, the campground is loaded and some basic information is displayed.
-  - Keyboard navigation?
-- Responsive site, Bootstrap? :/ Quick and dirty.
-
-#### Phase 3
-
-- Limit unneeded re-renders. This will be fun to learn
-- Eslint rules for Jest, testing would be nice...
--
+I look forward to chatting with you about my changes and hearing more about The ~~Dirt~~ Dyrt. - Daniel
