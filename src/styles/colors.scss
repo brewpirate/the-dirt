@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Palette - $c
 $cSand: #f8f6f4;
 $cMud: #3d3b3b;
@@ -19,12 +21,12 @@ $cBerry: #920b66;
 $cBPrimary: $cClay;
 $cBSecondary: $cForrest;
 $cBPro: $cOrange;
-$cBProHover: darken($cBPro, 9%);
+$cBProHover: color.scale($cBPro, $lightness: -9%);
 
 // Neutrals - $cN
-$cNWhite: #ffffff;
+$cNWhite: #fff;
 $cNOffWhite: $cSand;
-$cNBlack: #000000;
+$cNBlack: #000;
 $cNOffBlack: $cMud;
 $cNGrayLight: $cMist;
 $cNGray: $cStone;
@@ -32,18 +34,18 @@ $cNGrayDark: $cRock;
 
 // Accents - $cA
 $cAAction: $cPond;
-$cAActionHover: darken($cPond, 9%);
+$cAActionHover: color.scale($cPond, $lightness: -9%);
 $cAActive: $cBerry;
-$cAActiveHover: darken($cBerry, 9%);
-$cASelection: lighten($cBerry, 65%);
+$cAActiveHover: color.scale($cBerry, $lightness: -9%);
+$cASelection: color.scale($cBerry, $lightness: 65%);
 $cAInfo: $cDew;
-$cAInfoLight: lighten($cDew, 55%);
+$cAInfoLight: color.scale($cDew, $lightness: 55%);
 $cAInfoBg: #f9fbfc;
 $cASuccess: $cGreen;
-$cASuccessLight: lighten($cGreen, 55%);
+$cASuccessLight: color.scale($cGreen, $lightness: 55%);
 $cAWarning: $cWheat;
-$cAWarningLight: lighten($cWheat, 55%);
+$cAWarningLight: color.scale($cWheat, $lightness: 55%);
 $cAError: $cWine;
-$cAErrorLight: lighten($cWine, 65%);
-$cAErrorHover: darken($cWine, 2%);
+$cAErrorLight: color.scale($cWine, $lightness: 65%);
+$cAErrorHover: color.scale($cWine, $lightness: -2%);
 $cAErrorBg: #ffeded;

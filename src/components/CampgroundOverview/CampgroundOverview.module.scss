@@ -1,14 +1,29 @@
-@import '../../styles/styles.scss';
+@import "../../styles/styles";
 
 .overview {
   flex: 1;
   padding: 5rem;
+  background-color: $cPond;
+
+  &__content {
+    background-color: $cNOffWhite;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+
+    &__image {
+      max-height: 30vh;
+      max-width: 50vw;
+    }
+
+    &__crumb {
+      color: $cDew
+    }
+
+    &__reviews {
+      color: $cMud
+    }
+  }
 }
 
-.overview__content {
-  background-color: $cNOffWhite;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-}

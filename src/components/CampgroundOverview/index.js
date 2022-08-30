@@ -1,33 +1,43 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import styles from './CampgroundOverview.module.scss';
+import styles from "./CampgroundOverview.module.scss";
 
-const CampgroundOverview = ({ selectedCampgroundId,  }) => {
-  const [campground, setCampground] = useState()
+const CampgroundOverview = ({ selectedCampgroundId }) => {
+  const [campground, setCampground] = useState();
 
   useEffect(() => {
     if (selectedCampgroundId) {
       const getCampground = async () => {
-        const res = await fetch(`${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/campgrounds/${selectedCampgroundId}`)
-        const data = await res.json()
-        console.log('CampgroundOverview:selectedCampgroundId =>', data)
-        setCampground(data)
-      }
+        try {
+          const res = await fetch(
+            `${process.env.REACT_APP_THE_DYRT_API_URL}/api/v5/campgrounds/${selectedCampgroundId}`
+          );
+          const data = await res.json();
+          setCampground(data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
-      getCampground()
+      getCampground();
     }
   }, [selectedCampgroundId]);
 
-  // TODO: Zenner Notes - Improve experience for undefined.?
   return (
-    <div className={styles['overview']}>
-      <div className={styles['overview__content']}>
-        {!selectedCampgroundId ? (
-          <p></p>
-        ) : (
-          <h2>{`Display Content About ${campground?.name}`}</h2>
-        )}
-      </div>
+    <div className={styles["overview"]}>
+      <div className={styles["overview__content"]}>
+        { !selectedCampgroundId  && <p></p> }
+        { selectedCampgroundId &&
+          <div>
+            { campground?.photoUrl && <img className={styles["overview__content__image"]} src={`${campground?.photoUrl}`} alt={campground?.name} /> }
+            <h1>{`${campground?.name}`}</h1>
+            <div className={styles["overview__content__crumb"]}>{`${campground?.type} > ${campground?.region_name} > ${campground?.name}`}</div>
+            <div className={styles["overview__content__reviews"]}>
+             Reviews: {campground?.reviews_count}
+            </div>
+          </div>
+        }
+        </div>
     </div>
   );
 };

@@ -1,9 +1,9 @@
 html {
-  @include fBody();
+  box-sizing: border-box;
+  @include fBody;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-
   color: $cNOffBlack;
   background-color: $cMud;
   scroll-behavior: smooth;
@@ -47,8 +47,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
-  font-weight: normal;
+  color: $cBPrimary;
+  font-weight: bolder;
 }
 
 ul {
@@ -60,10 +60,6 @@ input,
 select,
 textarea {
   margin: 0;
-}
-
-html {
-  box-sizing: border-box;
 }
 
 *,
